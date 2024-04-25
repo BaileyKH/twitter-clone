@@ -25,6 +25,10 @@ i{
     cursor: pointer;
 }
 
+.fa-solid, .fa-regular{
+    color: #949CA5;
+}
+
 .liked{
     color: #8E21C2;
 }
@@ -106,6 +110,7 @@ button{
 .tweet-detail{
     display: flex;
     gap: 4px;
+    color: white;
 }
 
 .tweet-reply{
@@ -118,11 +123,12 @@ button{
 .handle{
     font-size: 12px;
     font-weight: 500;
-    color: #555;
+    color: #F9E1B1;
     margin-top: 0;
 }
 
 .tweet-text{
+    color: white;
     width: 207px;
     font-size: 14px;
     line-height: 20px;
@@ -130,10 +136,15 @@ button{
 
 /* images */
 
-.profile-pic{
-    /* border: 1px solid lightgray; */
-    /* border-radius: 50%; */
+.profile-pic {
     width: 60px;
+    height: auto;
+}
+
+.user-pic{
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    width: 48px;
 }
 
 /* utility */
