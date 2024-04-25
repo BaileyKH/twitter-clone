@@ -57,11 +57,6 @@ const tweetsData = [
 ]
 
 const tweetInput = document.getElementById("tweet-input")
-const tweetBtn = document.getElementById("tweet-btn")
-
-tweetBtn.addEventListener("click", () => {
-    console.log(tweetInput.value)
-})
 
 document.addEventListener("click", (e) => {
     if (e.target.dataset.like){
@@ -70,6 +65,8 @@ document.addEventListener("click", (e) => {
         handleRetweetClick(e.target.dataset.retweet)
     } else if (e.target.dataset.reply) {
         handleReplyClick(e.target.dataset.reply)
+    } else if (e.target.id === 'tweet-btn'){
+        handleTweetBtnClick(e.target.dataset.tweetbtn)
     }
 })
 
@@ -101,6 +98,23 @@ function handleRetweetClick(tweetID) {
 
 function handleReplyClick(replyID){
     document.getElementById(`replies-${replyID}`).classList.toggle('hidden')
+}
+
+function handleTweetBtnClick(){
+    let newTweet = {
+        handle: `@SuperSickCoder`,
+        profilePic: `assets/logo.webp`,
+        likes: 0,
+        retweets: 0,
+        tweetText: tweetInput.value,
+        replies: [],
+        isLiked: false,
+        isRetweeted: false,
+        uuid: crypto.randomUUID(),
+    }
+    tweetsData.unshift(newTweet)
+    tweetInput.value = ""
+    render()
 }
 
 function getFeedHtml() {
@@ -162,3 +176,4 @@ function render() {
 }
 
 render()
+

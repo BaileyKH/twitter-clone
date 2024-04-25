@@ -151,3 +151,19 @@ button{
 .hidden{
     display: none;
 }
+
+@media only screen and (min-width: 1024px){
+    main, header{
+        width: 900px;
+        margin: 0 auto;
+    }
+
+    button{
+        padding: 10px 10px;
+        width: 20%; 
+    }
+
+    .tweet-text{
+        width: 80%;
+    }
+}
