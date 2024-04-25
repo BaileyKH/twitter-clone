@@ -56,8 +56,6 @@ const tweetsData = [
     },     
 ]
 
-const tweetInput = document.getElementById("tweet-input")
-
 document.addEventListener("click", (e) => {
     if (e.target.dataset.like){
         handleLikeClick(e.target.dataset.like)
@@ -101,17 +99,19 @@ function handleReplyClick(replyID){
 }
 
 function handleTweetBtnClick(){
-    tweetsData.unshift({
-        handle: `@SuperSickCoder`,
-        profilePic: `assets/logo.webp`,
-        likes: 0,
-        retweets: 0,
-        tweetText: tweetInput.value,
-        replies: [],
-        isLiked: false,
-        isRetweeted: false,
-        uuid: crypto.randomUUID(),
-    })
+    const tweetInput = document.getElementById("tweet-input")
+    if (tweetInput.value ){
+        tweetsData.unshift({
+            handle: `@SuperSickCoder`,
+            profilePic: `assets/logo.webp`,
+            likes: 0,
+            retweets: 0,
+            tweetText: tweetInput.value,
+            replies: [],
+            isLiked: false,
+            isRetweeted: false,
+            uuid: crypto.randomUUID(),
+    })}
     tweetInput.value = ""
     render()
 }
