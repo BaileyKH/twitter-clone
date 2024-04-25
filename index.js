@@ -101,7 +101,7 @@ function handleReplyClick(replyID){
 }
 
 function handleTweetBtnClick(){
-    let newTweet = {
+    tweetsData.unshift({
         handle: `@SuperSickCoder`,
         profilePic: `assets/logo.webp`,
         likes: 0,
@@ -111,8 +111,7 @@ function handleTweetBtnClick(){
         isLiked: false,
         isRetweeted: false,
         uuid: crypto.randomUUID(),
-    }
-    tweetsData.unshift(newTweet)
+    })
     tweetInput.value = ""
     render()
 }
